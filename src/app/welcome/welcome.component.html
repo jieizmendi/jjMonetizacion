@@ -1,30 +1,35 @@
 <mat-card>
-  <div class="container">
+  <mat-card-header>
 
-    <h1>Welcome</h1>
-    <form #welcomeForm="ngForm">
-      <div [hidden]="welcomeForm.submitted">
+    <mat-card-title>Welcome</mat-card-title>
+    <span class="spacer"></span>
+    <span> icono monedas {{user.coins}} </span>
 
-        <div class="form-group">
-          <label for="name">Nomrbe</label>
-          <input id="name" name="name" class="form-control" required minlength="4" [(ngModel)]="user.name" #name="ngModel">
+  </mat-card-header>
 
-          <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+  <form #welcomeForm="ngForm">
+    <div [hidden]="welcomeForm.submitted">
 
-            <div *ngIf="name.errors.required">
-              Name is required.
-            </div>
-            <div *ngIf="name.errors.minlength">
-              Name must be at least 4 characters long.
-            </div>
+      <div class="form-group">
+        <label for="name">Nombre</label>
+        <input id="name" name="name" class="form-control" required minlength="4" [(ngModel)]="user.name" #name="ngModel">
 
+        <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+
+          <div *ngIf="name.errors.required">
+            Name is required.
           </div>
+          <div *ngIf="name.errors.minlength">
+            Name must be at least 4 characters long.
+          </div>
+
         </div>
-        <button (click)="onSubmit()" type="submit" class="btn btn-default" [disabled]="welcomeForm.invalid">Submit</button>
-        <button type="button" class="btn btn-default" (click)="welcomeForm.resetForm({})">Reset</button>
       </div>
 
-    </form>
+      <button (click)="onFree()" type="submit" class="btn btn-default" [disabled]="welcomeForm.invalid">Play Free</button>
+      <button (click)="onBuy()" type="submit" class="btn btn-default" [disabled]="welcomeForm.invalid">Buy (icono500)</button>
+    </div>
 
-  </div>
+  </form>
+
 </mat-card>

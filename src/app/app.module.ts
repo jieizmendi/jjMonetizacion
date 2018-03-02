@@ -14,6 +14,7 @@ import { QuizModule } from './quiz/quiz.module';
 
 import { UserService } from './services/user.service';
 import { QuestionService } from './services/question.service';
+import { GameService } from './services/game.service';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { query } from '@angular/animations/src/animation_metadata';
@@ -32,7 +33,7 @@ import { query } from '@angular/animations/src/animation_metadata';
     QuizModule,
     FormsModule, ReactiveFormsModule
   ],
-  providers: [UserService, QuestionService],
+  providers: [UserService, QuestionService, GameService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

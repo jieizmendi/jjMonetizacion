@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 import {User} from '../../models/user.model';
+import {Game} from '../../models/game.model';
 import {UserService} from '../../services/user.service';
+import {GameService} from '../../services/game.service';
 
 @Component({
   selector: 'app-header',
@@ -11,9 +13,10 @@ import {UserService} from '../../services/user.service';
 export class HeaderComponent implements OnInit {
 
   user: User;
-
-  constructor(private userService:UserService) {
+  game: Game;
+  constructor(private userService:UserService, private gameService:GameService) {
     this.user = this.userService.getUser();
+    this.game = this.gameService.getGame();
    }
 
   ngOnInit() {

@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 
 import {
   MatAutocompleteModule,
@@ -39,6 +40,8 @@ import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   imports: [
+    BrowserModule,
+
     MatAutocompleteModule,
     MatButtonModule,
     MatButtonToggleModule,
@@ -110,4 +113,4 @@ import { FooterComponent } from './footer/footer.component';
   ],
   declarations: [HeaderComponent, FooterComponent]
 })
-export class MaterialModule {}
+export class MaterialModule { }

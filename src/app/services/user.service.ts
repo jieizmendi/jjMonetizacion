@@ -3,7 +3,6 @@ import { User } from '../models/user.model';
 
 @Injectable()
 export class UserService {
-
   user: User;
 
   constructor() {
@@ -16,6 +15,10 @@ export class UserService {
 
   setUser(u: User) {
     this.user = u;
+  }
+
+  updateCoins(n: number){
+    this.user.coins += n;
   }
 
 }

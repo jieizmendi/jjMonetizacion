@@ -1,11 +1,7 @@
 <mat-toolbar color="primary">
-    <span>jjMonetizacion</span>
-    <span class="spacer"></span>
-    <h1> Welcome, {{user.name}} </h1>
-    <!--
-    <button type="button" mat-button (click)="openDialog()">
-      <mat-icon class="icon">reorder</mat-icon> Modulos
-    </button>
-  -->
-  </mat-toolbar>
-  
+  <span>jjMonetizacion</span>
+  <span class="spacer"></span>
+  <h1>{{user.name}}
+    <span *ngIf="!game.full">icono monedas {{user.coins}}</span>
+  </h1>
+</mat-toolbar>
