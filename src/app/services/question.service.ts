@@ -11,4 +11,8 @@ export class QuestionService {
     return QUESTIONS[id];
   }
 
+  getQuantity():number{
+    return QUESTIONS.length;
+  }
+
 }

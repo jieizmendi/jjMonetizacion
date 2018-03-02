@@ -1,5 +1,5 @@
 <app-header></app-header>
 
-<app-question [question]="selectedQuestion"></app-question>
+<app-question (next)="next($event)" [questionn]="selectedQuestion"></app-question>
 
 <app-footer></app-footer>

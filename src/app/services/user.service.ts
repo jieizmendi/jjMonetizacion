@@ -6,7 +6,7 @@ export class UserService {
   user: User;
 
   constructor() {
-    this.user = new User("Alice", 500);
+    this.user = new User("Alice", 500, 0);
   }
 
   getUser(): User {
@@ -17,8 +17,12 @@ export class UserService {
     this.user = u;
   }
 
-  updateCoins(n: number){
+  updateCoins(n: number) {
     this.user.coins += n;
+  }
+
+  updateScore(n: number) {
+    this.user.score += n;
   }
 
 }

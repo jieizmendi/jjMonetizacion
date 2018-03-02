@@ -3,14 +3,14 @@
     <mat-card-title>{{question.question}}</mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    <mat-radio-group [(ngModel)]="answer">
-      <mat-radio-button *ngFor="let ans of answers" value="ans">{{ans}}</mat-radio-button>
-    </mat-radio-group>
+    <button mat-raised-button (click)="onGo(0)" [disabled]="answers[0].disabled" color="primary">{{answers[0].text}}</button>
+    <button mat-raised-button (click)="onGo(1)" [disabled]="answers[1].disabled" color="primary">{{answers[1].text}}</button>
+    <button mat-raised-button (click)="onGo(2)" [disabled]="answers[2].disabled" color="primary">{{answers[2].text}}</button>
+    <button mat-raised-button (click)="onGo(3)" [disabled]="answers[3].disabled" color="primary">{{answers[3].text}}</button>
   </mat-card-content>
   <mat-card-actions>
     <button *ngIf="game.full" (click)="onTip()" mat-button>Tip!</button>
     <button *ngIf="!game.full" [disabled]="!skipEnable" (click)="onSkip()" mat-button>Skip! icono {{game.priceSkip}}</button>
     <button *ngIf="!game.full" [disabled]="!tipEnable" (click)="onTip()" mat-button>Tip! icono {{game.priceTip}}</button>
-    <button (click)="onGo()" mat-button>GO!</button>
   </mat-card-actions>
 </mat-card>
