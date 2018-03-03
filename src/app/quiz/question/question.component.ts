@@ -30,6 +30,7 @@ export class QuestionComponent implements OnInit {
   @Output() next = new EventEmitter<any>();
 
   tipEnable: boolean = false;
+  tipEnableFreemium: boolean = false;
   tipUsed: boolean = false;
   skipEnable: boolean = false;
 
@@ -47,6 +48,7 @@ export class QuestionComponent implements OnInit {
     ];
     this.answers = shuffle(this.answers);
     this.tipEnable = false;
+    this.tipEnableFreemium = false;
     this.tipUsed = false;
     this.skipEnable = false;
     this.updateView();
@@ -66,6 +68,10 @@ export class QuestionComponent implements OnInit {
       this.skipEnable = true;
     }
     if (this.tipUsed) this.tipEnable = false;
+    if (this.game.freemium && (this.user.score - this.game.priceTipFree >= 0))
+      this.tipEnableFreemium = true;
+    else
+      this.tipEnableFreemium = false;
   }
 
   onGo(n: number) {
@@ -89,6 +95,20 @@ export class QuestionComponent implements OnInit {
 
   onTip() {
     this.userService.updateCoins(-this.game.priceTip);
+    this.tipUsed = true;
+    let c = 0;
+    while (c < 2) {
+      let i = randomInt(0, 3);
+      if (!this.answers[i].correct && !this.answers[i].disabled) {
+        this.answers[i].disabled = true;
+        c++;
+      }
+    }
+    this.updateView();
+  }
+
+  onTipFree() {
+    this.userService.updateScore(-this.game.priceTipFree);
     this.tipUsed = true;
     let c = 0;
     while (c < 2) {

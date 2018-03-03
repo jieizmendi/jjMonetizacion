@@ -3,9 +3,10 @@ import { CommonModule } from '@angular/common';
 import { QuizComponent } from './quiz/quiz.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MaterialModule } from '../shared/material.module';
-import {QuizRouting} from './quiz-routing.module';
+import { QuizRouting } from './quiz-routing.module';
 import { QuestionComponent } from './question/question.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PublicityComponent } from './publicity/publicity.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -14,6 +15,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule
   ],
-  declarations: [QuizComponent, QuestionComponent]
+  declarations: [QuizComponent, QuestionComponent, PublicityComponent],
+  entryComponents: [PublicityComponent]
 })
 export class QuizModule { }

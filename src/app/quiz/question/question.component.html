@@ -1,6 +1,8 @@
 <mat-card>
   <mat-card-header>
     <mat-card-title>{{question.question}}</mat-card-title>
+    <span class="spacer"></span>
+    <span>Puntos: {{user.score}}</span>
   </mat-card-header>
   <mat-card-content>
     <button mat-raised-button (click)="onGo(0)" [disabled]="answers[0].disabled" color="primary">{{answers[0].text}}</button>
@@ -9,8 +11,9 @@
     <button mat-raised-button (click)="onGo(3)" [disabled]="answers[3].disabled" color="primary">{{answers[3].text}}</button>
   </mat-card-content>
   <mat-card-actions>
-    <button *ngIf="game.full" (click)="onTip()" mat-button>Tip!</button>
-    <button *ngIf="!game.full" [disabled]="!skipEnable" (click)="onSkip()" mat-button>Skip! icono {{game.priceSkip}}</button>
-    <button *ngIf="!game.full" [disabled]="!tipEnable" (click)="onTip()" mat-button>Tip! icono {{game.priceTip}}</button>
+    <button *ngIf="game.full" [disabled]="!tipEnable" (click)="onTip()" mat-button>Tip!</button>
+    <button *ngIf="game.freemium" [disabled]="!tipEnableFreemium" (click)="onTipFree()" mat-button>Tip! (puntos {{game.priceTipFree}})</button>
+    <button *ngIf="!game.full && !game.freemium" [disabled]="!skipEnable" (click)="onSkip()" mat-button>Skip! icono {{game.priceSkip}}</button>
+    <button *ngIf="!game.full  && !game.freemium" [disabled]="!tipEnable" (click)="onTip()" mat-button>Tip! icono {{game.priceTip}}</button>
   </mat-card-actions>
 </mat-card>

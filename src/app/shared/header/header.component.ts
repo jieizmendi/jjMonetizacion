@@ -22,4 +22,9 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
   }
 
+  buyPublicity(){
+    this.userService.updateCoins(-this.game.pricePublicity);
+    this.gameService.publicityOff();
+  }
+
 }

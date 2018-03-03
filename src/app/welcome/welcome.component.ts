@@ -36,4 +36,10 @@ export class WelcomeComponent implements OnInit {
     this.gameService.goFull();
     this.router.navigate(['quiz']);
   }
+
+  onFreemium(){
+    this.userService.setUser(this.user);
+    this.gameService.goFreemium();
+    this.router.navigate(['quiz']);
+  }
 }

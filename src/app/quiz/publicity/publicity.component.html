@@ -1,0 +1,9 @@
+<h1 mat-dialog-title>Publicidad</h1>
+<div mat-dialog-content>
+  Juan I. Eizmendi
+  Juan E. Nieva Casanova
+</div>
+<div mat-dialog-actions>
+  <span *ngIf="publicityTime>0">Cerrando en {{publicityTime}}seg.</span>
+  <!--<button mat-button [disabled]="publicityTime>0" (click)="onNoClick()">No Thanks</button>-->
+</div>
