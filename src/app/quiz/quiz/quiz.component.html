@@ -1,5 +1,6 @@
 <app-header></app-header>
 
-<app-question (next)="next($event)" [questionn]="selectedQuestion"></app-question>
+<app-question *ngIf="!endGame" (next)="next($event)" [questionn]="selectedQuestion"></app-question>
+<app-congratulations *ngIf="endGame"></app-congratulations>
 
 <app-footer></app-footer>

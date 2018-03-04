@@ -17,6 +17,7 @@ export class QuizComponent implements OnInit {
   game: Game;
   selectedQuestion: Question;
   index: number;
+  endGame: boolean = false;
 
   constructor(
     private userService: UserService,
@@ -33,14 +34,16 @@ export class QuizComponent implements OnInit {
   ngOnInit() {
   }
 
-  next($event) {
+  next(event) {
+    this.user.answers[this.index-1] = event;
+    if (this.index == this.questionService.getQuantity()) {
+      this.endGame = true;
+      return;
+    }
     if (this.game.publicity)
       this.openDialog();
     this.selectedQuestion = this.questionService.getQuestion(this.index);
     this.index++;
-    if (this.index == this.questionService.getQuantity()) {
-      //do end
-    }
   }
 
   openDialog(): void {

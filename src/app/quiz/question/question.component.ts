@@ -75,16 +75,27 @@ export class QuestionComponent implements OnInit {
   }
 
   onGo(n: number) {
-    if (!this.answers[n].correct)
+    if (!this.answers[n].correct) {
       this.userService.updateScore(0);
-    else if (this.tipUsed)
+      this.nextQuestion(false);
+    }
+    else if (this.tipUsed) {
       this.userService.updateScore(1);
-    else
+      this.nextQuestion(true);
+    }
+    else {
       this.userService.updateScore(2);
-
-    this.openSnackBar("hola", "close");
-
-    this.next.emit(null);
+      this.nextQuestion(true);
+    }
+  }
+  nextQuestion(e: boolean) {
+    if (e) {
+      this.openSnackBar("Bien!!!!", "cerrar");
+    } else {
+      this.openSnackBar(":( !", "cerrar");
+    }
+    setTimeout(() => { this.next.emit(e); }, 1000);
+    
   }
 
   onSkip() {
@@ -95,7 +106,7 @@ export class QuestionComponent implements OnInit {
 
   onTip() {
     this.userService.updateCoins(-this.game.priceTip);
-    this.tipUsed = true;
+    this.tipEnableFreemium = true;
     let c = 0;
     while (c < 2) {
       let i = randomInt(0, 3);
@@ -123,7 +134,7 @@ export class QuestionComponent implements OnInit {
 
   openSnackBar(message: string, action: string) {
     this.snackBar.open(message, action, {
-      duration: 2000,
+      duration: 1000,
     });
   }
 

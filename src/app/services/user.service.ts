@@ -6,7 +6,7 @@ export class UserService {
   user: User;
 
   constructor() {
-    this.user = new User("Alice", 500, 0);
+    this.user = new User("Alice", 500, 0, []);
   }
 
   getUser(): User {

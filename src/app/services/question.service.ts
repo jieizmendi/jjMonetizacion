@@ -10,7 +10,9 @@ export class QuestionService {
   getQuestion(id: number): Question {
     return QUESTIONS[id];
   }
-
+  getQuestions(): Question[] {
+    return QUESTIONS;
+  }
   getQuantity():number{
     return QUESTIONS.length;
   }

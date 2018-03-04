@@ -7,6 +7,7 @@ import { QuizRouting } from './quiz-routing.module';
 import { QuestionComponent } from './question/question.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PublicityComponent } from './publicity/publicity.component';
+import { CongratulationsComponent } from './congratulations/congratulations.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -15,7 +16,7 @@ import { PublicityComponent } from './publicity/publicity.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  declarations: [QuizComponent, QuestionComponent, PublicityComponent],
+  declarations: [QuizComponent, QuestionComponent, PublicityComponent, CongratulationsComponent],
   entryComponents: [PublicityComponent]
 })
 export class QuizModule { }

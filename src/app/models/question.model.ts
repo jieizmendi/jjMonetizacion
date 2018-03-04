@@ -14,5 +14,5 @@ export const QUESTIONS: Question[] = [
     new Question("Que estrategia de monetizacion agrega nuevas posibilidades y combinaciones de juego?", ["Jugabilidad", "Restriccion", "Personalizacion", "Separacion"]),
     new Question("Que estrategia es mas dificil de aplicar por que afecta las mecanicas del videojuego?", ["Jugabilidad", "Restriccion", "Personalizacion", "Separacion"]),
     new Question("Que estrategia de monetizacion le permite al jugador disfrutar de nuevos escenarios,mapas, objetos, etc.", ["Jugabilidad", "Restriccion", "Personalizacion", "Separacion"]),
-    new Question("Hay alguna estrategia mejor que otra?", ["No, todas tienen sus ventajas y desventajas", "Si, la separacion es la mas importante", "Si, la restriccion ya que no se pueden combinar diferentes estrategias", "Si pero depende del tipo de videojuego"]),
+    new Question("Hay alguna estrategia mejor que otra?", ["No, todas tienen sus ventajas y desventajas", "Si, la separacion es la mas importante", "Si, la restriccion ya que no se pueden combinar diferentes estrategias", "Si pero depende del tipo de videojuego"])
 ];

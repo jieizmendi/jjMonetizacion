@@ -1,0 +1,13 @@
+<p>
+  Respuestas Correctas
+</p>
+
+<mat-list>
+  <mat-list-item *ngFor="let q of qqq">
+    <mat-icon mat-list-icon *ngIf="q.ok">favorite</mat-icon>
+    <mat-icon mat-list-icon *ngIf="!q.ok">error</mat-icon>
+    <h4 mat-line>{{q.q}}</h4>
+    <p mat-line> {{q.a}} </p>
+  </mat-list-item>
+  <mat-divider></mat-divider>
+</mat-list>
