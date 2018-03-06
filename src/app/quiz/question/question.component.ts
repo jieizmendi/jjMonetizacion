@@ -29,10 +29,10 @@ export class QuestionComponent implements OnInit {
   answers: Answ[];
   @Output() next = new EventEmitter<any>();
 
-  tipEnable: boolean = false;
-  tipEnableFreemium: boolean = false;
+  tipEnable: boolean = true;
+  tipEnableFreemium: boolean = true;
   tipUsed: boolean = false;
-  skipEnable: boolean = false;
+  skipEnable: boolean = true;
 
   constructor(private userService: UserService, private gameService: GameService, public snackBar: MatSnackBar) {
     this.user = this.userService.getUser();
@@ -47,31 +47,38 @@ export class QuestionComponent implements OnInit {
       { text: this.question.answers[3], correct: false, disabled: false }
     ];
     this.answers = shuffle(this.answers);
-    this.tipEnable = false;
-    this.tipEnableFreemium = false;
+    this.tipEnable = true;
+    this.tipEnableFreemium = true;
     this.tipUsed = false;
-    this.skipEnable = false;
+    this.skipEnable = true;
     this.updateView();
   }
 
   updateView() {
-    if (this.user.coins - this.game.priceSkip >= 0)
-      this.skipEnable = true;
-    else
+    if (this.game.freemium) {
       this.skipEnable = false;
-    if (this.user.coins - this.game.priceTip >= 0)
+
+      //Check for points
+      if (this.user.score - this.game.priceTipFree >= 0)
+        this.tipEnable = true;
+      else
+        this.tipEnable = false;
+    } else if (this.game.full) {
       this.tipEnable = true;
-    else
-      this.tipEnable = false;
-    if (this.game.full) {
-      this.tipEnable = true;
-      this.skipEnable = true;
+      this.skipEnable = false;
+    } else {
+      //Check coins for skip 
+      if (this.user.coins - this.game.priceSkip >= 0)
+        this.skipEnable = true;
+      else
+        this.skipEnable = false;
+
+      //Check coins for tip
+      if (this.user.coins - this.game.priceTip >= 0)
+        this.tipEnable = true;
+      else
+        this.tipEnable = false;
     }
-    if (this.tipUsed) this.tipEnable = false;
-    if (this.game.freemium && (this.user.score - this.game.priceTipFree >= 0))
-      this.tipEnableFreemium = true;
-    else
-      this.tipEnableFreemium = false;
   }
 
   onGo(n: number) {
@@ -88,6 +95,7 @@ export class QuestionComponent implements OnInit {
       this.nextQuestion(true);
     }
   }
+
   nextQuestion(e: boolean) {
     if (e) {
       this.openSnackBar("Bien!!!!", "cerrar");
@@ -95,32 +103,27 @@ export class QuestionComponent implements OnInit {
       this.openSnackBar(":( !", "cerrar");
     }
     setTimeout(() => { this.next.emit(e); }, 1000);
-    
+
   }
 
   onSkip() {
     this.userService.updateCoins(-this.game.priceSkip);
     this.userService.updateScore(1);
-    //go next
+    this.nextQuestion(true);
   }
 
   onTip() {
-    this.userService.updateCoins(-this.game.priceTip);
-    this.tipEnableFreemium = true;
-    let c = 0;
-    while (c < 2) {
-      let i = randomInt(0, 3);
-      if (!this.answers[i].correct && !this.answers[i].disabled) {
-        this.answers[i].disabled = true;
-        c++;
-      }
+    //collect points/coins
+    if (this.game.freemium) {
+      this.userService.updateScore(-this.game.priceTipFree);
+    } else if (!this.game.full) {
+      this.userService.updateCoins(-this.game.priceTip);
     }
-    this.updateView();
-  }
+  
+    //disable tip
+    this.tipEnable = false;
 
-  onTipFree() {
-    this.userService.updateScore(-this.game.priceTipFree);
-    this.tipUsed = true;
+    //disable 2 random aswers
     let c = 0;
     while (c < 2) {
       let i = randomInt(0, 3);
@@ -129,7 +132,7 @@ export class QuestionComponent implements OnInit {
         c++;
       }
     }
-    this.updateView();
+    //this.updateView();
   }
 
   openSnackBar(message: string, action: string) {

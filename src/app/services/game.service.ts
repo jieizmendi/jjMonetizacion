@@ -26,4 +26,8 @@ export class GameService {
     this.game.freemium = true;
   }
 
+  reset() {
+    this.game = new Game(false, false, true, 250, 100, 50, 2, 100);
+  }
+
 }

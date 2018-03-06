@@ -22,7 +22,7 @@ export class WelcomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    
+    this.gameService.reset();
   }
 
   onFree(){
