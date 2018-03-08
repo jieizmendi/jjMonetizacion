@@ -1,9 +1,11 @@
 <mat-toolbar color="primary">
   <span>jjMonetizacion</span>
   <span class="spacer"></span>
-  <h1>{{user.name}}
-    <span *ngIf="!game.full">icono monedas {{user.coins}}</span>
+  <h1>
+    {{user.name}}
+    <span *ngIf="!game.full"><mat-icon>monetization_on</mat-icon> {{user.coins}}</span>
   </h1>
   <span *ngIf="game.publicity" class="spacer"></span>
-  <button *ngIf="game.publicity" mat-raised-button (click)="buyPublicity()" color="primary">Quitar Publicidad {{game.pricePublicity}}</button>
+  <button *ngIf="game.publicity" mat-raised-button (click)="buyPublicity()" color="primary">Quitar Publicidad <mat-icon>monetization_on</mat-icon> {{game.pricePublicity}}</button>
+ 
 </mat-toolbar>

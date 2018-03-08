@@ -100,7 +100,7 @@ export class QuestionComponent implements OnInit {
     if (e) {
       this.openSnackBar("Bien!!!!", "cerrar");
     } else {
-      this.openSnackBar(":( !", "cerrar");
+      this.openSnackBar("No tan bien...", "cerrar");
     }
     setTimeout(() => { this.next.emit(e); }, 1000);
 

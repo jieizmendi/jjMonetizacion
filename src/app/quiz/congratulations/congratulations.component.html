@@ -1,13 +1,16 @@
-<p>
-  Respuestas Correctas
-</p>
-
-<mat-list>
-  <mat-list-item *ngFor="let q of qqq">
-    <mat-icon mat-list-icon *ngIf="q.ok">favorite</mat-icon>
-    <mat-icon mat-list-icon *ngIf="!q.ok">error</mat-icon>
-    <h4 mat-line>{{q.q}}</h4>
-    <p mat-line> {{q.a}} </p>
-  </mat-list-item>
-  <mat-divider></mat-divider>
-</mat-list>
+<mat-card>
+  <mat-card-title>
+    Resultados:
+  </mat-card-title>
+  <mat-card-content>
+    <mat-list>
+      <mat-list-item *ngFor="let q of qqq; last as last">
+        <mat-icon mat-list-icon *ngIf="q.ok">done</mat-icon>
+        <mat-icon mat-list-icon *ngIf="!q.ok">clear</mat-icon>
+        <h4 mat-line>{{q.q}}</h4>
+        <p mat-line> {{q.a}} </p>
+        <mat-divider [inset]="true" *ngIf="!last"></mat-divider>
+      </mat-list-item>
+    </mat-list>
+   </mat-card-content>
+</mat-card>
