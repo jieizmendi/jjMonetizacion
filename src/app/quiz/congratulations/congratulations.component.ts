@@ -38,7 +38,8 @@ export class CongratulationsComponent implements OnInit {
       this.qqq[i] = { q: this.questions[i].question, a: this.questions[i].answers[0], ok: this.user.answers[i] };
       if (this.qqq[i].ok) this.percentage++;
     }
-    this.percentage /= this.questionService.getQuantity() * 100;
+    this.percentage /= this.questionService.getQuantity();
+    this.percentage *= 100;
   }
 
 }
