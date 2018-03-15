@@ -33,7 +33,7 @@ import { query } from '@angular/animations/src/animation_metadata';
     QuizModule,
     FormsModule, ReactiveFormsModule
   ],
-  providers: [UserService, QuestionService, GameService],
+  providers: [QuestionService, GameService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

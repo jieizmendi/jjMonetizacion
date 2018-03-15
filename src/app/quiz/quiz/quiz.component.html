@@ -1,4 +1,8 @@
-<app-header></app-header>
+<app-header>
+  <mat-chip-list>
+    <mat-chip disabled *ngFor="let q of qs" [selected]="true" [color]="q.color">{{q.name}}</mat-chip>
+  </mat-chip-list>
+</app-header>
 
 <app-question *ngIf="!endGame" (next)="next($event)" [questionn]="selectedQuestion"></app-question>
 <app-congratulations *ngIf="endGame"></app-congratulations>

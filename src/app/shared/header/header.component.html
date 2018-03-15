@@ -1,11 +1,24 @@
 <mat-toolbar color="primary">
-  <span>jjMonetizacion</span>
-  <span class="spacer"></span>
-  <h1>
-    {{user.name}}
-    <span *ngIf="!game.full"><mat-icon>monetization_on</mat-icon> {{user.coins}}</span>
-  </h1>
-  <span *ngIf="game.publicity" class="spacer"></span>
-  <button *ngIf="game.publicity" mat-raised-button (click)="buyPublicity()" color="primary">Quitar Publicidad <mat-icon>monetization_on</mat-icon> {{game.pricePublicity}}</button>
- 
+  <mat-toolbar-row>
+    <span>jjMonetizacion</span>
+    <span class="spacer"></span>
+    <h1>
+      {{user.name}}
+      <span *ngIf="!game.full">
+        <mat-icon>monetization_on</mat-icon> {{user.coins}}</span>
+    </h1>
+  </mat-toolbar-row>
+
+  <mat-toolbar-row>
+    <ng-content></ng-content>
+    <!--
+    <mat-chip-list>
+      <mat-chip *ngFor="let q of qs" [selected]="q.selected" [color]="q.color">{{q.name}}</mat-chip>
+    </mat-chip-list>
+  -->
+    <span *ngIf="game.publicity" class="spacer"></span>
+    <button *ngIf="game.publicity" mat-raised-button (click)="buyPublicity()" color="primary">Quitar Publicidad
+      <mat-icon>monetization_on</mat-icon> {{game.pricePublicity}}</button>
+  </mat-toolbar-row>
+
 </mat-toolbar>

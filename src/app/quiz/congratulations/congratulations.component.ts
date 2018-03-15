@@ -17,6 +17,7 @@ class qq {
   styleUrls: ['./congratulations.component.css']
 })
 export class CongratulationsComponent implements OnInit {
+  percentage: number;
   user: User;
   questions: Question[];
   public qqq: qq[];
@@ -32,9 +33,12 @@ export class CongratulationsComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.percentage = 0;
     for (let i = 0; i < this.questionService.getQuantity(); i++) {
       this.qqq[i] = { q: this.questions[i].question, a: this.questions[i].answers[0], ok: this.user.answers[i] };
+      if (this.qqq[i].ok) this.percentage++;
     }
+    this.percentage /= this.questionService.getQuantity() * 100;
   }
 
 }

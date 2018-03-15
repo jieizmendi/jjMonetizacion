@@ -7,12 +7,21 @@ import { MatDialog } from '@angular/material';
 import { PublicityComponent } from '../publicity/publicity.component';
 import { Game } from '../../models/game.model';
 import { GameService } from '../../services/game.service';
+
+interface qshow {
+  name: number;
+  color: string;
+  selected: string;
+}
+
+
 @Component({
   selector: 'app-quiz',
   templateUrl: './quiz.component.html',
   styleUrls: ['./quiz.component.css']
 })
 export class QuizComponent implements OnInit {
+  qs: qshow[];
   user: User;
   game: Game;
   selectedQuestion: Question;
@@ -29,13 +38,22 @@ export class QuizComponent implements OnInit {
     this.game = this.gameService.getGame();
     this.index = 1;
     this.selectedQuestion = this.questionService.getQuestion(0);
+
+    this.qs = new Array<qshow>();
+    for (let i = 0; i < this.questionService.getQuantity(); i++)
+      this.qs.push({ name: i + 1, color: 'asd', selected: 'false' });
   }
 
   ngOnInit() {
   }
 
   next(event) {
-    this.user.answers[this.index-1] = event;
+    if (!event)
+      this.qs[this.index - 1].color = "warn";
+      else 
+      this.qs[this.index - 1].color = "primary";
+    this.qs[this.index - 1].selected = "true";
+    this.user.answers[this.index - 1] = event;
     if (this.index == this.questionService.getQuantity()) {
       this.endGame = true;
       return;
