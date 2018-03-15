@@ -12,3 +12,11 @@ mat-radio-button{
 .spacer {
     flex: 1 1 auto;
 }
+
+.arreglarDesface {
+    position: relative;
+    /* Adjust these values accordingly */
+    top: 5px;
+    left: 5px;
+  }
+  
