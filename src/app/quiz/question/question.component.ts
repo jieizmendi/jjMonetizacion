@@ -3,6 +3,8 @@ import { MatSnackBar } from '@angular/material';
 import { Question } from '../../models/question.model';
 import { User } from '../../models/user.model';
 import { Game } from '../../models/game.model';
+import { MatDialog } from '@angular/material';
+import { QuestionResultComponent } from '../questionResult/questionResult.component';
 
 import { UserService } from '../../services/user.service';
 import { GameService } from '../../services/game.service';
@@ -34,7 +36,7 @@ export class QuestionComponent implements OnInit {
   tipUsed: boolean = false;
   skipEnable: boolean = true;
 
-  constructor(private userService: UserService, private gameService: GameService, public snackBar: MatSnackBar) {
+  constructor(private userService: UserService, private gameService: GameService, public snackBar: MatSnackBar,public dialog: MatDialog) {
     this.user = this.userService.getUser();
     this.game = this.gameService.getGame();
   }
@@ -97,13 +99,8 @@ export class QuestionComponent implements OnInit {
   }
 
   nextQuestion(e: boolean) {
-    if (e) {
-      this.openSnackBar("Bien!!!!", "cerrar");
-    } else {
-      this.openSnackBar("No tan bien...", "cerrar");
-    }
-    setTimeout(() => { this.next.emit(e); }, 1000);
-
+    let dialogRef = this.dialog.open(QuestionResultComponent,{data:e});
+    dialogRef.afterClosed().subscribe(result => { setTimeout(() => { this.next.emit(e); }, 1000);}); 
   }
 
   onSkip() {
@@ -123,7 +120,7 @@ export class QuestionComponent implements OnInit {
     //disable tip
     this.tipEnable = false;
 
-    //disable 2 random aswers
+    //disable 2 random answers
     let c = 0;
     while (c < 2) {
       let i = randomInt(0, 3);
