@@ -31,7 +31,8 @@ import { query } from '@angular/animations/src/animation_metadata';
     AppRoutingModule,
     MaterialModule,
     QuizModule,
-    FormsModule, ReactiveFormsModule
+    FormsModule, 
+    ReactiveFormsModule
   ],
   providers: [QuestionService, GameService, UserService],
   bootstrap: [AppComponent]
