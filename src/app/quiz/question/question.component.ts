@@ -103,7 +103,7 @@ export class QuestionComponent implements OnInit {
   nextQuestion(e: boolean) {
     this.disabled = true;
     let dialogRef = this.dialog.open(QuestionResultComponent,{data:e, disableClose: true});
-    dialogRef.afterClosed().subscribe(result => { setTimeout(() => { this.next.emit(e); }, 1000);}); 
+    dialogRef.afterClosed().subscribe(result => { setTimeout(() => { this.next.emit(e); }, 500);}); 
   }
 
   onSkip() {

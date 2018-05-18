@@ -1,8 +1,12 @@
 mat-card {
-  margin-top: 25px;
-  width: 80%;
-  margin-left: auto;
-  margin-right: auto;
+    margin-top: 25px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+mat-toolbar {
+    margin-top: 25px;
 }
 
 .spacer {
@@ -10,15 +14,18 @@ mat-card {
 }
 
 .arreglarDesface {
-  position: relative;
-  /* Adjust these values accordingly */
-  top: 5px;
-  left: 5px;
+    position: relative;
+    /* Adjust these values accordingly */
+    top: 5px;
+    left: 5px;
 }
+
 .flex-container {
-  display: flex;
-  justify-content: center;
+    display: flex;
+    justify-content: center;
 }
+
 img {
-  object-fit: contain;
+    object-fit: contain;
+    margin-right: 25px;
 }

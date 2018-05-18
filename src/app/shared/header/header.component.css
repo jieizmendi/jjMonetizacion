@@ -5,7 +5,17 @@
 .spacer {
     flex: 1 1 auto;
 }
+
 .flex-container {
     display: flex;
     justify-content: center;
-  }
+}
+
+img {
+    margin-right: 25px;
+    margin-bottom: 25px;
+}
+
+mat-toolbar {
+    margin-top: 35px;
+}
