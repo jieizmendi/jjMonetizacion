@@ -26,6 +26,7 @@ export class QuestionComponent implements OnInit {
     this.question = value;
     this.ngOnInit();
   };
+  public disabled: boolean = false;
   user: User;
   game: Game;
   answers: Answ[];
@@ -81,6 +82,7 @@ export class QuestionComponent implements OnInit {
       else
         this.tipEnable = false;
     }
+    this.disabled = false;
   }
 
   onGo(n: number) {
@@ -99,7 +101,8 @@ export class QuestionComponent implements OnInit {
   }
 
   nextQuestion(e: boolean) {
-    let dialogRef = this.dialog.open(QuestionResultComponent,{data:e});
+    this.disabled = true;
+    let dialogRef = this.dialog.open(QuestionResultComponent,{data:e, disableClose: true});
     dialogRef.afterClosed().subscribe(result => { setTimeout(() => { this.next.emit(e); }, 1000);}); 
   }
 

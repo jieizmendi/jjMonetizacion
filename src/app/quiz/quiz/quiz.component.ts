@@ -69,7 +69,7 @@ export class QuizComponent implements OnInit {
     //  width: '250px',
     //  data: {}
     //});
-    let dialogRef = this.dialog.open(PublicityComponent);
+    let dialogRef = this.dialog.open(PublicityComponent, {disableClose: true});
 
     dialogRef.afterClosed().subscribe(result => {
     });
