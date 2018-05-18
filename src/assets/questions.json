@@ -1,0 +1,100 @@
+{
+    "questions": [{
+        "question": "¿Cuál de estas opciones no es una implementación de estrategia de monetización?",
+        "answers": [
+            "Todas son implementaciones de estrategias validas",
+            "Banner publicitario",
+            "Niveles especiales",
+            "Reducción de tiempo de espera",
+            "Venta de personajes o ítems"
+        ]
+    }, {
+        "question": "¿Cuáles de estas opciones no es una estrategia de monetización dentro de los videojuegos?",
+        "answers": [
+            "Separación",
+            "Restricción",
+            "Personalización",
+            "Jugabilidad"
+        ]
+    }, {
+        "question": "¿Qué estrategia es la mas rápida de implementar y monetizar?",
+        "answers": [
+            "Restricción",
+            "Personalización",
+            "Jugabilidad",
+            "Personalización"
+        ]
+    }, {
+        "question": "¿Qué estrategia es la ideal para videojuegos casuales?",
+        "answers": [
+            "Restricción",
+            "Personalización",
+            "Jugabilidad",
+            "Separación"
+        ]
+    }, {
+        "question": "¿Qué estrategia se utiliza en videojuegos que necesitan monetizar muy rápido a sus jugadores antes que dejen de jugar?",
+        "answers": [
+            "Restricción",
+            "Personalización",
+            "Jugabilidad",
+            "Separación"
+        ]
+    }, {
+        "question": "La utilización de la publicidad voluntaria como \"pago\" se da en la estrategia... ",
+        "answers": [
+            "Restricción",
+            "Personalización",
+            "Jugabilidad",
+            "Separación"
+        ]
+    }, {
+        "question": "Los cosméticos en los videojuegos, ¿A que estrategia pertenecen?",
+        "answers": [
+            "Personalización",
+            "Restricción",
+            "Jugabilidad",
+            "Separación"
+        ]
+    }, {
+        "question": "¿Qué estrategia aporta buenos ingresos y es muy atractiva aunque es larga y difícil y en definitiva se necesita mucho tiempo?",
+        "answers": [
+            "Personalización",
+            "Restricción",
+            "Jugabilidad",
+            "Separación"
+        ]
+    }, {
+        "question": "¿Qué estrategia de monetización agrega nuevas posibilidades y combinaciones de juego?",
+        "answers": [
+            "Jugabilidad",
+            "Restricción",
+            "Personalización",
+            "Separación"
+        ]
+    }, {
+        "question": "¿Qué estrategia es mas difícil de aplicar por que afecta las mecánicas del videojuego?",
+        "answers": [
+            "Jugabilidad",
+            "Restricción",
+            "Personalización",
+            "Separación"
+        ]
+    }, {
+        "question": "¿Qué estrategia de monetización le permite al jugador disfrutar de nuevos escenarios,mapas, objetos, etc.",
+        "answers": [
+            "Jugabilidad",
+            "Restricción",
+            "Personalización",
+            "Separación"
+        ]
+    }, {
+        "question": "¿Hay alguna estrategia mejor que otra?",
+        "answers": [
+            "No, todas tienen sus ventajas y desventajas",
+            "Si, la Separación es la mas importante",
+            "Si, la restricción ya que no se pueden combinar diferentes estrategias",
+            "Si pero depende del tipo de videojuego"
+        ]
+    }]
+}
