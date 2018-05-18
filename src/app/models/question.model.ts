@@ -5,7 +5,7 @@ export class Question {
 export const QUESTIONS: Question[] = [
     new Question("¿Cuál de estas opciones no es una implementación de estrategia de monetización?", ["Todas son implementaciones de estrategias validas", "Banner publicitario","Niveles especiales", "Reducción de tiempo de espera","Venta de personajes o ítems"]),
     new Question("¿Cuáles de estas opciones no es una estrategia de monetización dentro de los videojuegos?", ["Separación", "Restricción", "Personalización", "Jugabilidad"]),    
-    new Question("¿Qué estrategia es la mas rápida de implementar y monetizar?", ["Restricción", "Personalización", "Jugabilidad", "Personalización"]),
+    new Question("¿Qué estrategia es la más rápida de implementar y monetizar?", ["Restricción", "Personalización", "Jugabilidad", "Personalización"]),
     new Question("¿Qué estrategia es la ideal para videojuegos casuales?", ["Restricción", "Personalización", "Jugabilidad", "Separación"]),
     new Question("¿Qué estrategia se utiliza en videojuegos que necesitan monetizar muy rápido a sus jugadores antes que dejen de jugar?", ["Restricción", "Personalización", "Jugabilidad", "Separación"]),
     new Question("La utilización de la publicidad voluntaria como \"pago\" se da en la estrategia... ", ["Restricción", "Personalización", "Jugabilidad", "Separación"]),
