@@ -5,15 +5,15 @@
         <span>Puntos: {{user.score}}<mat-icon class="arreglarDesface">stars</mat-icon></span>
     </mat-card-header>
     <mat-card-content>
-        <button [disabled]="disabled" mat-raised-button (click)="onGo(0)" [disabled]="answers[0].disabled" color="primary">{{answers[0].text}}</button>
-        <button [disabled]="disabled" mat-raised-button (click)="onGo(1)" [disabled]="answers[1].disabled" color="primary">{{answers[1].text}}</button>
-        <button [disabled]="disabled" mat-raised-button (click)="onGo(2)" [disabled]="answers[2].disabled" color="primary">{{answers[2].text}}</button>
-        <button [disabled]="disabled" mat-raised-button (click)="onGo(3)" [disabled]="answers[3].disabled" color="primary">{{answers[3].text}}</button>
+        <button [disabled]="answers[0].disabled" mat-raised-button (click)="onGo(0)" color="primary">{{answers[0].text}}</button>
+        <button [disabled]="answers[1].disabled" mat-raised-button (click)="onGo(1)" color="primary">{{answers[1].text}}</button>
+        <button [disabled]="answers[2].disabled" mat-raised-button (click)="onGo(2)" color="primary">{{answers[2].text}}</button>
+        <button [disabled]="answers[3].disabled" mat-raised-button (click)="onGo(3)" color="primary">{{answers[3].text}}</button>
     </mat-card-content>
     <mat-card-actions>
-        <button [disabled]="disabled" *ngIf="game.full" [disabled]="!tipEnable" (click)="onTip()" mat-button>Tip!</button>
-        <button [disabled]="disabled" *ngIf="game.freemium" [disabled]="!tipEnable" (click)="onTip()" mat-button>Tip! ({{game.priceTipFree}} <mat-icon>stars</mat-icon>)</button>
-        <button [disabled]="disabled" *ngIf="!game.full && !game.freemium" [disabled]="!skipEnable" (click)="onSkip()" mat-button>Skip! <mat-icon>monetization_on</mat-icon> {{game.priceSkip}}</button>
-        <button [disabled]="disabled" *ngIf="!game.full  && !game.freemium" [disabled]="!tipEnable" (click)="onTip()" mat-button matTooltip="Sugerencias de respuestas correctas!">Tip! <mat-icon>monetization_on</mat-icon> {{game.priceTip}}</button>
+        <button *ngIf="game.full" [disabled]="!tipEnable" (click)="onTip()" mat-button>Tip!</button>
+        <button *ngIf="game.freemium" [disabled]="!tipEnable" (click)="onTip()" mat-button>Tip! ({{game.priceTipFree}} <mat-icon>stars</mat-icon>)</button>
+        <button *ngIf="!game.full && !game.freemium" [disabled]="!skipEnable" (click)="onSkip()" mat-button>Skip! <mat-icon>monetization_on</mat-icon> {{game.priceSkip}}</button>
+        <button *ngIf="!game.full  && !game.freemium" [disabled]="!tipEnable" (click)="onTip()" mat-button matTooltip="Sugerencias de respuestas correctas!">Tip! <mat-icon>monetization_on</mat-icon> {{game.priceTip}}</button>
     </mat-card-actions>
 </mat-card>
